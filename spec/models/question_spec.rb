@@ -9,6 +9,6 @@ RSpec.describe Question, type: :model do
   end
 
   describe 'association' do
-  it { should have_many :answers }
+  it { should have_many(:answers).dependent(:destroy) }
   end
 end
