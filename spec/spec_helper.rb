@@ -96,4 +96,16 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+require 'shoulda-matchers'
+
+require "bundler/setup"
+::Bundler.require(:default, :test)
+
+::Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :active_record
+    with.library :active_model
+  end
+ end
 end
