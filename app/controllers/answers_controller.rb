@@ -2,7 +2,7 @@ class AnswersController < ApplicationController
 	before_action :load_question, only: [:new, :create]
 
   def new
-    @answer = Answer.new
+    @answer = @question.answers.build
   end
 
   def create
