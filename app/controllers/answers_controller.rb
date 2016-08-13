@@ -6,12 +6,20 @@ class AnswersController < ApplicationController
   end
 
   def create
-    @Answer = Answer.new(answer_params)
+    @answer = @question.answers.build(answer_params)
     
     if @answer.save
-      redirect_to @answer
+      redirect_to @question
     else
       render :new
     end
+  end
+
+  def load_question
+    @question = Question.find(params[:question_id])
+  end
+
+  def answer_params
+    params.require(:answer).permit(:body)
   end
 end

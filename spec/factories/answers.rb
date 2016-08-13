@@ -4,4 +4,9 @@ FactoryGirl.define do
     user_id 1
     question_id 1
   end
+
+  factory :invalid_answer, class: "answer" do
+    title nil
+    body nil
+  end
 end
