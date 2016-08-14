@@ -36,7 +36,7 @@ class QuestionsController < ApplicationController
   
   def destroy
     @question.destroy
-    redirect_to :action => :index
+    redirect_to questions_path
   end
   
   private
@@ -46,6 +46,6 @@ class QuestionsController < ApplicationController
   end
   
   def question_params
-    params.require(:question).permit(:title, :body,)
+    params.require(:question).permit(:title, :body, :user_id)
   end
 end
