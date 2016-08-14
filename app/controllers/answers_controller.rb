@@ -15,6 +15,8 @@ class AnswersController < ApplicationController
     end
   end
 
+  private
+  
   def load_question
     @question = Question.find(params[:question_id])
   end
